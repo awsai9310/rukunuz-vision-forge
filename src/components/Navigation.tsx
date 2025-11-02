@@ -1,96 +1,83 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
 const Navigation = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const navItems = [
+    { label: "Problem", href: "#problem" },
+    { label: "Solution", href: "#solution" },
+    { label: "Process", href: "#process" },
+    { label: "About", href: "#about" },
+  ];
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
-      setIsMobileMenuOpen(false);
+      setIsOpen(false);
     }
   };
 
-  const navLinks = [
-    { label: "About", id: "about" },
-    { label: "Expertise", id: "expertise" },
-    { label: "Projects", id: "projects" },
-    { label: "Insights", id: "insights" },
-    { label: "Connect", id: "connect" },
-  ];
-
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/95 backdrop-blur-md shadow-soft" : "bg-transparent"
-      }`}
-    >
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
-          <button
-            onClick={() => scrollToSection("hero")}
-            className="font-heading font-bold text-xl text-primary hover:text-accent transition-colors"
-          >
-            RZ
-          </button>
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-16">
+          <div className="font-heading font-bold text-xl text-primary">
+            Agentic Commerce
+          </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
+            {navItems.map((item) => (
               <button
-                key={link.id}
-                onClick={() => scrollToSection(link.id)}
-                className="font-body text-sm font-medium text-foreground hover:text-primary transition-colors"
+                key={item.label}
+                onClick={() => scrollToSection(item.href)}
+                className="font-body text-sm text-foreground hover:text-accent transition-colors"
               >
-                {link.label}
+                {item.label}
               </button>
             ))}
             <Button
-              onClick={() => scrollToSection("connect")}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-body font-semibold"
+              size="sm"
+              className="bg-accent hover:bg-accent/90 text-accent-foreground font-body font-semibold"
+              onClick={() => scrollToSection("#connect")}
             >
-              Let's Talk
+              Book a Call
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden text-foreground"
+            onClick={() => setIsOpen(!isOpen)}
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 space-y-4 animate-fade-in">
-            {navLinks.map((link) => (
-              <button
-                key={link.id}
-                onClick={() => scrollToSection(link.id)}
-                className="block w-full text-left font-body text-foreground hover:text-primary transition-colors py-2"
+        {/* Mobile Navigation */}
+        {isOpen && (
+          <div className="md:hidden py-4 border-t border-border">
+            <div className="flex flex-col gap-4">
+              {navItems.map((item) => (
+                <button
+                  key={item.label}
+                  onClick={() => scrollToSection(item.href)}
+                  className="font-body text-foreground hover:text-accent transition-colors text-left"
+                >
+                  {item.label}
+                </button>
+              ))}
+              <Button
+                size="sm"
+                className="bg-accent hover:bg-accent/90 text-accent-foreground font-body font-semibold w-full"
+                onClick={() => scrollToSection("#connect")}
               >
-                {link.label}
-              </button>
-            ))}
-            <Button
-              onClick={() => scrollToSection("connect")}
-              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-body font-semibold"
-            >
-              Let's Talk
-            </Button>
+                Book a Call
+              </Button>
+            </div>
           </div>
         )}
       </div>

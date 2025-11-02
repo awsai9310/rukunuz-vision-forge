@@ -32,14 +32,14 @@ const Connect = () => {
   };
 
   return (
-    <section id="connect" className="py-24 bg-gradient-sky">
+    <section id="connect" className="py-24 bg-gradient-warm">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-heading font-bold text-4xl md:text-5xl text-center mb-4 text-primary">
-            Let's Connect
+            Let's Build Your Agentic Future
           </h2>
           <p className="font-body text-lg text-center text-muted-foreground mb-12">
-            Building tomorrow's cloud platforms together — reach out to discuss your next big idea
+            Ready to transform your e-commerce brand with AI agents? Let's discuss your next big idea.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -107,52 +107,27 @@ const Connect = () => {
               <Card className="border-border bg-card shadow-soft">
                 <CardContent className="p-6">
                   <h3 className="font-heading font-bold text-xl mb-4 text-foreground">
-                    Connect on Social
+                    Quick Start Options
                   </h3>
                   <div className="space-y-3">
-                    <Button
-                      variant="outline"
-                      className="w-full justify-start border-primary/30 hover:bg-primary hover:text-primary-foreground transition-all"
-                      asChild
-                    >
-                      <a
-                        href="https://www.linkedin.com/in/rukunuzzaman"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-3"
-                      >
-                        <Linkedin size={20} />
-                        <span className="font-body">LinkedIn Profile</span>
-                      </a>
-                    </Button>
-                    <Button
-                      variant="outline"
-                      className="w-full justify-start border-primary/30 hover:bg-primary hover:text-primary-foreground transition-all"
-                      asChild
-                    >
-                      <a
-                        href="https://github.com/rukunuzzaman"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-3"
-                      >
-                        <Github size={20} />
-                        <span className="font-body">GitHub Repositories</span>
-                      </a>
-                    </Button>
-                    <Button
-                      variant="outline"
-                      className="w-full justify-start border-primary/30 hover:bg-primary hover:text-primary-foreground transition-all"
-                      asChild
-                    >
-                      <a
-                        href="mailto:rukunuz@example.com"
-                        className="flex items-center gap-3"
-                      >
-                        <Mail size={20} />
-                        <span className="font-body">Email Direct</span>
-                      </a>
-                    </Button>
+                    <div className="p-4 bg-secondary/50 rounded-lg border border-border">
+                      <h4 className="font-body font-semibold text-foreground mb-2">📅 30-Minute Strategy Call</h4>
+                      <p className="font-body text-sm text-muted-foreground">
+                        Free consultation to assess your agentic readiness and identify quick wins.
+                      </p>
+                    </div>
+                    <div className="p-4 bg-secondary/50 rounded-lg border border-border">
+                      <h4 className="font-body font-semibold text-foreground mb-2">🚀 30-Day Pilot Program</h4>
+                      <p className="font-body text-sm text-muted-foreground">
+                        Proof-of-value implementation with measurable results in one month.
+                      </p>
+                    </div>
+                    <div className="p-4 bg-secondary/50 rounded-lg border border-border">
+                      <h4 className="font-body font-semibold text-foreground mb-2">📘 AI Agent ROI Calculator</h4>
+                      <p className="font-body text-sm text-muted-foreground">
+                        Download our free calculator to estimate impact for your brand.
+                      </p>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
@@ -160,11 +135,10 @@ const Connect = () => {
               <Card className="border-border bg-card shadow-soft">
                 <CardContent className="p-6">
                   <h3 className="font-heading font-bold text-xl mb-3 text-foreground">
-                    Open to Opportunities
+                    Who We Work With
                   </h3>
                   <p className="font-body text-muted-foreground leading-relaxed">
-                    I'm always interested in ambitious projects that push the boundaries of cloud technology, 
-                    especially those making an impact in education and enterprise modernization.
+                    E-commerce brands doing $1M–$50M in annual revenue on Shopify, Magento, WooCommerce, or custom platforms — ready to lead in the era of agentic commerce.
                   </p>
                 </CardContent>
               </Card>
